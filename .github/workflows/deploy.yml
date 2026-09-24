@@ -22,10 +22,11 @@ jobs:
           script: |
             cd /home/devops/docker-site
             git pull origin main
-            sg docker build -t my-site-image .
-            sg docker stop my-container || true
-            sg  docker rm my-container || true
-            sg docker run -d -p 8080:80 --name my-container my-site-image
+            docker build -t my-site-image .
+            docker stop my-container || true
+            docker rm my-container || true
+            docker run -d -p 8080:80 --name my-container my-site-image
+
 
 
 
